@@ -47,3 +47,37 @@ def about(request):
             'year':datetime.now().year,
         })
     )
+
+def services(request):
+    """
+    :param request:
+    :return:
+    """
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/services.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Services',
+            'message':'Services provided by Friendly Element.',
+            'year':datetime.now().year,
+        })
+    )
+
+def blog(request):
+    """
+    :param request:
+    :return:
+    """
+    assert isinstance(request, HttpRequest)
+    return render(
+        request,
+        'app/blog.html',
+        context_instance = RequestContext(request,
+        {
+            'title':'Blog',
+            'message':'Friendly Element Blog.',
+            'year':datetime.now().year,
+        })
+    )
