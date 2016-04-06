@@ -1,20 +1,20 @@
 function include(url) {
-    document.write('<script src="' + url + '"></script>');
+    document.write('<script src="static/site/scripts/' + url + '"></script>');
     return false;
 }
 
 /* cookie.JS
  ========================================================*/
-include('js/jquery.cookie.js');
+include('jquery.cookie.js');
 
 
 /* DEVICE.JS
  ========================================================*/
-include('js/device.min.js');
+include('device.min.js');
 
 /* Stick up menu
  ========================================================*/
-include('js/tmstickup.js');
+include('tmstickup.js');
 $(window).load(function () {
     if ($('html').hasClass('desktop')) {
         $('#stuck_container').TMStickUp({
@@ -24,12 +24,12 @@ $(window).load(function () {
 
 /* Easing library
  ========================================================*/
-include('js/jquery.easing.1.3.js');
+include('jquery.easing.1.3.js');
 
 
 /* ToTop
  ========================================================*/
-include('js/jquery.ui.totop.js');
+include('jquery.ui.totop.js');
 $(function () {
     $().UItoTop({ easingType: 'easeOutQuart' });
 });
@@ -37,8 +37,8 @@ $(function () {
 
 /* DEVICE.JS AND SMOOTH SCROLLIG
  ========================================================*/
-include('js/jquery.mousewheel.min.js');
-include('js/jquery.simplr.smoothscroll.min.js');
+include('jquery.mousewheel.min.js');
+include('jquery.simplr.smoothscroll.min.js');
 $(function () {
     if ($('html').hasClass('desktop')) {
         $.srSmoothscroll({
@@ -58,12 +58,12 @@ $(document).ready(function () {
 
 /* Superfish menu
  ========================================================*/
-include('js/superfish.js');
-include('js/jquery.mobilemenu.js');
+include('superfish.js');
+include('jquery.mobilemenu.js');
 
 /* Unveil
  ========================================================*/
-include('js/jquery.unveil.js');
+include('jquery.unveil.js');
 $(document).ready(function () {
     $('img').unveil();
 });

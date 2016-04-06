@@ -60,8 +60,8 @@ def services(request):
         context_instance = RequestContext(request,
         {
             'title':'Services',
-            'message':'Services provided by Friendly Element.',
-            'year':datetime.now().year,
+            'message':'Services provided by Friendly Element.'
+            #'year':datetime.now().year,
         })
     )
 
