@@ -3,13 +3,18 @@ Django settings for FEDjango project.
 """
 
 from os import path
+
 PROJECT_ROOT = path.dirname(path.abspath(path.dirname(__file__)))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
+# THIS MUST INCLUDE PRODUCTION DOMAIN/IP
 ALLOWED_HOSTS = (
-    'localhost',
+    '127.0.0.1',
+    '127.0.0.1:8000',
+    'www.friendlyelement.com',
+    'friendlyelement.com',
 )
 
 ADMINS = (
@@ -76,19 +81,35 @@ STATIC_ROOT = path.join(PROJECT_ROOT, 'static').replace('\\', '/')
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
 
+STATIC_ROOT = path.join(path.join(PROJECT_ROOT, 'app'), 'static')
+print('App Directory: ' + STATIC_ROOT)
+
+STATIC_SITE_ROOT = path.join(STATIC_ROOT, 'site').replace('\\', '/')
+
+print('Static site root: ' +  STATIC_SITE_ROOT)
+
 # Additional locations of static files
 STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    STATIC_SITE_ROOT,
+    STATIC_SITE_ROOT + '/content/',
+    STATIC_SITE_ROOT + '/css/',
+    STATIC_SITE_ROOT + '/fonts/',
+    STATIC_SITE_ROOT + '/scripts/',
+
 )
+
+for root in STATICFILES_DIRS:
+    print('StaticFileDir: ' + root)
 
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -121,6 +142,8 @@ TEMPLATE_DIRS = (
     # "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    path.join(PROJECT_ROOT, 'templates').replace('\\', '/'),
+    path.join(PROJECT_ROOT, 'templates').replace('\\', '/') + '/app/',
 )
 
 INSTALLED_APPS = (
